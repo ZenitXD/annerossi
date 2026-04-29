@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Services – Anne Rossi Skin & Beauty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .services-wrap { padding:5rem 6rem; }
+    .category-block { margin-bottom:5rem; }
+    .category-block:last-child { margin-bottom:0; }
+    .cat-header { display:flex; align-items:center; gap:2rem; margin-bottom:2.5rem; padding-bottom:1.5rem; border-bottom:1px solid var(--sand); flex-wrap:wrap; }
+    .cat-tag { font-size:.68rem; letter-spacing:.28em; text-transform:uppercase; color:var(--white); background:var(--accent); padding:.35rem .9rem; border-radius:20px; }
+    .cat-title { font-family:var(--serif); font-size:2rem; font-weight:300; color:var(--dark); }
+    .cat-desc { font-size:.88rem; color:var(--taupe); max-width:580px; line-height:1.85; }
+    .svc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:1.5px; background:var(--sand); }
+    .svc-card { background:var(--white); padding:2.2rem 2rem; transition:background .2s; }
+    .svc-card:hover { background:var(--cream); }
+    .svc-ph { width:100%; height:200px; border-radius:2px; margin-bottom:1.5rem; }
+    .svc-cat-label { font-size:.65rem; letter-spacing:.22em; text-transform:uppercase; color:var(--accent2); margin-bottom:.5rem; }
+    .svc-name { font-family:var(--serif); font-size:1.3rem; color:var(--dark); margin-bottom:.7rem; }
+    .svc-desc { font-size:.85rem; color:var(--taupe); line-height:1.8; }
+    .svc-book { display:inline-block; margin-top:1.2rem; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent2); padding-bottom:2px; transition:color .2s; }
+    .svc-book:hover { color:var(--dark); }
+
+    .cta-band { background:var(--dark); padding:5rem 6rem; text-align:center; }
+    .cta-band h2 { font-family:var(--serif); font-size:clamp(2rem,4vw,3rem); font-weight:300; color:var(--cream); margin-bottom:1rem; }
+    .cta-band h2 em { font-style:italic; color:var(--accent2); }
+    .cta-band p { font-size:.9rem; color:var(--taupe); margin-bottom:2rem; }
+
+    @media(max-width:960px){
+      .services-wrap { padding:3rem 1.5rem; }
+      .cta-band { padding:4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-hero">
+  <span class="section-label">What we offer</span>
+  <h1>Our <em>Treatments</em></h1>
+  <p class="hero-sub">From advanced aesthetic medicine to traditional beauty therapies — all treatments are medically approved and delivered by highly trained therapists in our Clontarf clinic.</p>
+</div>
+
+<div class="services-wrap">
+
+  <!-- ADVANCED LASER & AESTHETIC -->
+  <div class="category-block">
+    <div class="cat-header">
+      <span class="cat-tag">Advanced</span>
+      <h2 class="cat-title">Laser & Aesthetic Medicine</h2>
+    </div>
+    <p class="cat-desc" style="margin-bottom:2rem">Clinically proven procedures administered in a medically supervised environment. All treatments are tailored to your individual skin type and concerns.</p>
+    <div class="svc-grid">
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Fraxel photo</span></div>
+        <p class="svc-cat-label">Laser · Resurfacing</p>
+        <h3 class="svc-name">Fraxel Laser Resurfacing</h3>
+        <p class="svc-desc">Stimulates collagen production to visibly reduce wrinkles, acne scarring, sun damage and uneven skin tone. Clinically proven with lasting results.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>IPL photo</span></div>
+        <p class="svc-cat-label">Laser · Rejuvenation</p>
+        <h3 class="svc-name">IPL Treatments</h3>
+        <p class="svc-desc">Intense Pulsed Light targets pigmentation, redness, broken capillaries and overall dullness — revealing a brighter, more even complexion.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Laser hair removal photo</span></div>
+        <p class="svc-cat-label">Laser · Hair Removal</p>
+        <h3 class="svc-name">Laser Hair Removal</h3>
+        <p class="svc-desc">Permanent hair reduction using the latest laser technology. Safe and effective for all skin types, with long-lasting smooth results.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Microneedling photo</span></div>
+        <p class="svc-cat-label">Advanced · Skin</p>
+        <h3 class="svc-name">Microneedling</h3>
+        <p class="svc-desc">A micro-puncture technique that triggers the skin's natural repair process — boosting collagen, reducing fine lines, scars and improving overall texture.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Fillers photo</span></div>
+        <p class="svc-cat-label">Aesthetic · Injectable</p>
+        <h3 class="svc-name">Dermal Fillers & Skin Boosters</h3>
+        <p class="svc-desc">Injectable treatments to restore volume, hydration and youthful contours. Natural-looking results tailored to your facial anatomy.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Peel photo</span></div>
+        <p class="svc-cat-label">Advanced · Skin</p>
+        <h3 class="svc-name">Medical-Grade Chemical Peels</h3>
+        <p class="svc-desc">Exfoliate, brighten and resurface with a peel selected specifically for your skin type — targeting dullness, pigmentation, fine lines and breakouts.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>PMU photo</span></div>
+        <p class="svc-cat-label">Aesthetic · Cosmetic</p>
+        <h3 class="svc-name">Permanent Make Up</h3>
+        <p class="svc-desc">Semi-permanent cosmetic tattooing for brows, eyeliner and lips. Wake up flawless every morning — no daily application needed.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BEAUTY -->
+  <div class="category-block">
+    <div class="cat-header">
+      <span class="cat-tag" style="background:var(--accent2)">Beauty</span>
+      <h2 class="cat-title">Beauty Therapies</h2>
+    </div>
+    <p class="cat-desc" style="margin-bottom:2rem">Classic and contemporary beauty treatments delivered to the highest standard. From nails to skin, you're in expert hands.</p>
+    <div class="svc-grid">
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Nails photo</span></div>
+        <p class="svc-cat-label">Beauty · Nails</p>
+        <h3 class="svc-name">Manicures & Pedicures</h3>
+        <p class="svc-desc">Gel, shellac and classic nail treatments for hands and feet. Leave the clinic with perfectly groomed, long-lasting nails.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Brows photo</span></div>
+        <p class="svc-cat-label">Beauty · Eyes & Brows</p>
+        <h3 class="svc-name">Brow Tint & Shaping</h3>
+        <p class="svc-desc">Define and frame your face with perfectly shaped, tinted brows. Our therapists design each shape to complement your individual features.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Waxing photo</span></div>
+        <p class="svc-cat-label">Beauty · Body</p>
+        <h3 class="svc-name">Waxing</h3>
+        <p class="svc-desc">Professional waxing for face and body using the finest wax formulas. Smooth, clean results that last — with minimal discomfort.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Facials photo</span></div>
+        <p class="svc-cat-label">Beauty · Skin</p>
+        <h3 class="svc-name">Facials</h3>
+        <p class="svc-desc">Bespoke facial treatments to cleanse, nourish and restore — chosen for your skin type and concerns, to leave you glowing.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Lash photo</span></div>
+        <p class="svc-cat-label">Beauty · Eyes</p>
+        <h3 class="svc-name">Lash Tint & Lift</h3>
+        <p class="svc-desc">Enhance your natural lashes with a semi-permanent tint and lift — beautifully defined eyes without the need for mascara.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="img-ph svc-ph"><span>Spray tan photo</span></div>
+        <p class="svc-cat-label">Beauty · Body</p>
+        <h3 class="svc-name">Spray Tan</h3>
+        <p class="svc-desc">A flawless, natural-looking tan applied by our trained therapists. Perfect for special occasions or year-round confidence.</p>
+        <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="svc-book">Book this treatment →</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Not sure which <em>treatment is right for you?</em></h2>
+  <p>Book a consultation and our expert team will guide you through the best options for your skin and goals.</p>
+  <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="btn-primary">Book a Consultation</a>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Anne Rossi Skin & Beauty – Clontarf, Dublin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* HOME-SPECIFIC */
+    .hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; padding-top:72px; }
+    .hero-left { display:flex; flex-direction:column; justify-content:center; padding:5rem 4rem 5rem 6rem; }
+    .hero-eyebrow { font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); margin-bottom:1.6rem; }
+    .hero-title { font-family:var(--serif); font-size:clamp(3rem,5vw,5.5rem); font-weight:300; line-height:1.08; margin-bottom:1.6rem; }
+    .hero-title em { font-style:italic; color:var(--accent); }
+    .hero-sub { font-size:.92rem; color:var(--taupe); max-width:380px; margin-bottom:2.6rem; line-height:1.9; }
+    .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; }
+    .hero-right { position:relative; overflow:hidden; }
+    .hero-ph { width:100%; height:100%; min-height:600px; }
+    .hero-badge { position:absolute; bottom:2.5rem; left:-1rem; background:var(--white); padding:1.2rem 1.8rem; border-left:3px solid var(--accent2); box-shadow:0 8px 32px rgba(44,36,32,.08); }
+    .hero-badge strong { display:block; font-family:var(--serif); font-size:1.5rem; color:var(--dark); }
+    .hero-badge span { font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--taupe); }
+
+    .booking-strip { background:var(--white); border-top:1px solid var(--sand); border-bottom:1px solid var(--sand); padding:1.2rem 6rem; display:flex; align-items:center; justify-content:center; gap:2rem; flex-wrap:wrap; }
+    .booking-strip p { font-size:.85rem; color:var(--taupe); }
+
+    /* SERVICES PREVIEW */
+    .services-preview { padding:6rem; background:var(--white); }
+    .sp-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem; flex-wrap:wrap; gap:1rem; }
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5px; background:var(--sand); }
+    .svc-card { background:var(--white); padding:2.2rem 1.8rem; transition:background .2s; }
+    .svc-card:hover { background:var(--cream); }
+    .svc-cat { font-size:.65rem; letter-spacing:.22em; text-transform:uppercase; color:var(--accent2); margin-bottom:.5rem; }
+    .svc-name { font-family:var(--serif); font-size:1.25rem; color:var(--dark); margin-bottom:.6rem; }
+    .svc-desc { font-size:.83rem; color:var(--taupe); line-height:1.75; margin-bottom:1rem; }
+    .svc-ph { width:100%; height:150px; border-radius:2px; }
+
+    /* ABOUT STRIP */
+    .about-strip { display:grid; grid-template-columns:1fr 1fr; }
+    .about-img { min-height:480px; }
+    .about-content { padding:5rem; display:flex; flex-direction:column; justify-content:center; background:var(--warm); }
+    .about-quote { font-family:var(--serif); font-size:1.05rem; font-style:italic; color:var(--accent); border-left:2px solid var(--accent2); padding-left:1.4rem; margin:1.5rem 0; line-height:1.8; }
+    .about-text { font-size:.88rem; color:var(--taupe); line-height:2; margin-bottom:1rem; }
+
+    /* REVIEWS */
+    .reviews-section { padding:6rem; background:var(--dark); }
+    .reviews-section .section-label { color:var(--accent2); }
+    .reviews-section .section-title { color:var(--cream); margin-top:.5rem; }
+    .reviews-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem; margin-top:3rem; }
+    .review-card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); padding:2rem; border-radius:2px; transition:background .2s; }
+    .review-card:hover { background:rgba(255,255,255,.07); }
+    .stars { color:var(--accent2); margin-bottom:1rem; }
+    .review-text { font-family:var(--serif); font-size:1rem; font-style:italic; color:rgba(250,247,242,.75); line-height:1.75; margin-bottom:1.5rem; }
+    .reviewer-name { font-size:.85rem; color:var(--cream); }
+    .reviewer-source { font-size:.7rem; color:var(--taupe); letter-spacing:.08em; }
+
+    /* CONTACT STRIP */
+    .contact-strip { display:grid; grid-template-columns:1fr 1fr; }
+    .hours-panel { padding:5rem 6rem; background:var(--cream); }
+    .info-panel { padding:5rem 6rem; background:var(--warm); }
+    .hours-row { display:flex; justify-content:space-between; padding:.7rem 0; border-bottom:1px solid var(--sand); font-size:.88rem; }
+    .hours-row:last-child { border:none; }
+    .h-day { color:var(--dark); font-weight:400; }
+    .h-time { color:var(--taupe); }
+    .h-closed { color:var(--taupe); font-style:italic; }
+    .info-item { display:flex; gap:1rem; align-items:flex-start; margin-bottom:1.8rem; }
+    .info-icon { width:36px; height:36px; flex-shrink:0; border:1px solid var(--sand); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--accent); }
+    .info-label { font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--taupe); margin-bottom:.25rem; }
+    .info-value { font-size:.9rem; color:var(--dark); }
+    .info-value a { color:var(--dark); text-decoration:none; }
+    .info-value a:hover { color:var(--accent); }
+
+    @media(max-width:960px){
+      .hero { grid-template-columns:1fr; }
+      .hero-left { padding:4rem 1.5rem 3rem; }
+      .hero-ph { min-height:55vw; }
+      .services-preview { padding:4rem 1.5rem; }
+      .about-strip { grid-template-columns:1fr; }
+      .about-img { min-height:60vw; }
+      .about-content { padding:3rem 1.5rem; }
+      .reviews-section { padding:4rem 1.5rem; }
+      .contact-strip { grid-template-columns:1fr; }
+      .hours-panel,.info-panel { padding:3rem 1.5rem; }
+      .booking-strip { padding:1.2rem 1.5rem; flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow fu">Skin & Beauty · Clontarf, Dublin</p>
+    <h1 class="hero-title fu2">Beauty<br>is our <em>duty.</em></h1>
+    <p class="hero-sub fu3">Advanced skin treatments, aesthetic medicine, and beauty therapies — delivered with over 20 years of medical expertise. Fully approved, always personalised.</p>
+    <div class="hero-actions fu3">
+      <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="btn-primary">Book Appointment</a>
+      <a href="services.html" class="btn-ghost">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="img-ph hero-ph">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="27" stroke="#8c6e5a" stroke-width="1"/><path d="M18 38 C18 28 38 28 38 18" stroke="#8c6e5a" stroke-width="1" fill="none"/></svg>
+      <span>Clinic photo</span>
+    </div>
+    <div class="hero-badge">
+      <strong>20+</strong>
+      <span>Years of expertise</span>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING STRIP -->
+<div class="booking-strip">
+  <p>Ready to treat yourself? Quick, easy, instant confirmation.</p>
+  <a href="https://phorest.com/book/salons/annerossi" target="_blank" class="btn-primary">Book via Phorest →</a>
+</div>
+
+<!-- SERVICES PREVIEW -->
+<section class="services-preview">
+  <div class="sp-header">
+    <div>
+      <span class="section-label">What we offer</span>
+      <h2 class="section-title" style="margin-top:.5rem">Treatments &amp; <em>Services</em></h2>
+    </div>
+    <a href="services.html" class="btn-ghost">View all services</a>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <p class="svc-cat">Advanced · Laser</p>
+      <h3 class="svc-name">Fraxel Laser</h3>
+      <p class="svc-desc">Collagen-stimulating laser resurfacing for wrinkles, scarring and uneven tone.</p>
+      <div class="img-ph svc-ph"><span>Photo</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <p class="svc-cat">Advanced · Skin</p>
+      <h3 class="svc-name">Microneedling</h3>
+      <p class="svc-desc">Boost collagen and improve texture, fine lines and scarring naturally.</p>
+      <div class="img-ph svc-ph"><span>Photo</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <p class="svc-cat">Advanced · Hair Removal</p>
+      <h3 class="svc-name">Laser Hair Removal</h3>
+      <p class="svc-desc">Permanent reduction using the latest technology, safe for all skin types.</p>
+      <div class="img-ph svc-ph"><span>Photo</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <p class="svc-cat">Beauty · Nails</p>
+      <h3 class="svc-name">Manicures & Pedicures</h3>
+      <p class="svc-desc">Gel, shellac and classic nail treatments — hands and feet at their best.</p>
+      <div class="img-ph svc-ph"><span>Photo</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <p class="svc-cat">Beauty · Eyes & Brows</p>
+      <h3 class="svc-name">Brow Tint & Shaping</h3>
+      <p class="svc-desc">Perfectly shaped and tinted brows tailored to your features.</p>
+      <div class="img-ph svc-ph"><span>Photo</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <p class="svc-cat">Beauty · Body</p>
+      <h3 class="svc-name">Waxing</h3>
+      <p class="svc-desc">Professional face and body waxing — smooth, long-lasting results.</p>
+      <div class="img-ph svc-ph"><span>Photo</span></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:3rem">
+    <a href="services.html" class="btn-primary">See all treatments</a>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section class="about-strip">
+  <div class="img-ph about-img">
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="27" stroke="#8c6e5a" stroke-width="1"/><circle cx="28" cy="20" r="8" stroke="#8c6e5a" stroke-width="1"/><path d="M10 52C10 40.95 18.06 32 28 32s18 8.95 18 20" stroke="#8c6e5a" stroke-width="1"/></svg>
+    <span>Photo of Anne</span>
+  </div>
+  <div class="about-content">
+    <span class="section-label">Our story</span>
+    <h2 class="section-title" style="margin-top:.5rem">Meet <em>Anne Rossi</em></h2>
+    <div class="divider"></div>
+    <blockquote class="about-quote">"Beauty Is Our Duty — and I have made it my life's work."</blockquote>
+    <p class="about-text">A registered nurse with a higher diploma in beauty therapy and aesthetic medicine, Anne has over 20 years of expertise. All procedures are fully medically approved and supervised.</p>
+    <a href="about.html" class="btn-ghost" style="margin-top:1.5rem">Read our story</a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <span class="section-label">What clients say</span>
+  <h2 class="section-title">Client <em>Reviews</em></h2>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Placeholder — add a real client review here. Highly professional, warm atmosphere and outstanding results."</p>
+      <p class="reviewer-name">Client Name</p>
+      <p class="reviewer-source">Google Review</p>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Placeholder — add a real client review here. I wouldn't go anywhere else. Anne and her team are simply the best."</p>
+      <p class="reviewer-name">Client Name</p>
+      <p class="reviewer-source">Google Review</p>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Placeholder — add a real client review here. The results speak for themselves. Medically approved and always personalised."</p>
+      <p class="reviewer-name">Client Name</p>
+      <p class="reviewer-source">Phorest Review</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS & CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="hours-panel">
+    <span class="section-label">When to find us</span>
+    <h2 class="section-title" style="margin-top:.5rem">Opening <em>Hours</em></h2>
+    <div style="margin-top:2rem">
+      <div class="hours-row"><span class="h-day">Monday</span><span class="h-time">9:30am – 7:00pm</span></div>
+      <div class="hours-row"><span class="h-day">Tuesday</span><span class="h-time">9:30am – 7:00pm</span></div>
+      <div class="hours-row"><span class="h-day">Wednesday</span><span class="h-time">9:30am – 8:00pm</span></div>
+      <div class="hours-row"><span class="h-day">Thursday</span><span class="h-time">9:30am – 8:00pm</span></div>
+      <div class="hours-row"><span class="h-day">Friday</span><span class="h-time">9:30am – 7:00pm</span></div>
+      <div class="hours-row"><span class="h-day">Saturday</span><span class="h-time">9:30am – 6:00pm</span></div>
+      <div class="hours-row"><span class="h-day">Sunday</span><span class="h-closed">Closed</span></div>
+      <div class="hours-row"><span class="h-day">Bank Holidays</span><span class="h-closed">Closed</span></div>
+    </div>
+  </div>
+  <div class="info-panel">
+    <span class="section-label">Get in touch</span>
+    <h2 class="section-title" style="margin-top:.5rem">Find <em>Us</em></h2>
+    <div style="margin-top:2rem">
+      <div class="info-item">
+        <div class="info-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><p class="info-label">Address</p><p class="info-value">10c Kincora Avenue, Clontarf<br>Dublin 3, D03 DW72</p></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.41 2 2 0 0 1 3.54 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.49a16 16 0 0 0 6 6l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><p class="info-label">Phone</p><p class="info-value"><a href="tel:+35318337021">+353 1 833 7021</a></p></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><p class="info-label">Email</p><p class="info-value"><a href="mailto:info@annerossi.com">info@annerossi.com</a></p></div>
+      </div>
+    </div>
+    <a href="contact.html" class="btn-ghost" style="margin-top:1rem">Send us a message</a>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>

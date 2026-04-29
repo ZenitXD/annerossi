@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Gift Cards – Anne Rossi Skin & Beauty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .shop-layout { display:grid; grid-template-columns:1fr 400px; gap:0; min-height:60vh; }
+
+    /* LEFT — PHOREST EMBED */
+    .phorest-panel { padding:5rem 5rem 5rem 6rem; background:var(--white); }
+    .phorest-panel h2 { font-family:var(--serif); font-size:2rem; font-weight:300; color:var(--dark); margin-bottom:.5rem; }
+    .phorest-panel h2 em { font-style:italic; color:var(--accent); }
+    .phorest-panel .sub { font-size:.88rem; color:var(--taupe); line-height:1.85; margin-bottom:2.5rem; max-width:480px; }
+
+    /* Phorest iframe wrapper */
+    .phorest-frame-wrap {
+      width:100%; border-radius:2px; overflow:hidden;
+      border:1px solid var(--sand);
+      min-height:680px;
+      position:relative;
+    }
+    .phorest-frame-wrap iframe { width:100%; height:680px; border:none; display:block; }
+
+    /* Fallback — shown if iframe can't load */
+    .phorest-fallback {
+      display:none;
+      flex-direction:column; align-items:center; justify-content:center;
+      gap:1.5rem; padding:4rem 2rem; text-align:center;
+      background:var(--warm); min-height:400px;
+    }
+    .phorest-fallback p { font-size:.9rem; color:var(--taupe); max-width:360px; line-height:1.8; }
+    .phorest-fallback h3 { font-family:var(--serif); font-size:1.5rem; color:var(--dark); }
+
+    /* Note about max */
+    .phorest-note { margin-top:1rem; font-size:.78rem; color:var(--taupe); padding:.8rem 1rem; background:var(--warm); border-left:2px solid var(--accent2); line-height:1.7; }
+    .phorest-note strong { color:var(--dark); }
+
+    /* RIGHT — INFO PANEL */
+    .info-panel { background:var(--warm); padding:5rem 3rem 5rem 3rem; border-left:1px solid var(--sand); }
+    .info-panel h3 { font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--dark); margin-bottom:1.5rem; }
+    .info-panel h3 em { font-style:italic; color:var(--accent); }
+
+    .gift-card-preview { background:var(--dark); border-radius:4px; padding:2.5rem 2rem; margin-bottom:2rem; position:relative; overflow:hidden; }
+    .gift-card-preview::before { content:''; position:absolute; top:-40px; right:-40px; width:160px; height:160px; border:1px solid rgba(196,168,130,.2); border-radius:50%; }
+    .gift-card-preview::after  { content:''; position:absolute; top:-20px; right:-20px; width:100px; height:100px; border:1px solid rgba(196,168,130,.15); border-radius:50%; }
+    .gc-brand { font-family:var(--serif); font-size:1.1rem; color:var(--cream); letter-spacing:.1em; margin-bottom:.3rem; }
+    .gc-brand span { color:var(--accent2); }
+    .gc-sub { font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--taupe); }
+    .gc-amount { font-family:var(--serif); font-size:3rem; font-weight:300; color:var(--accent2); margin-top:1.5rem; line-height:1; }
+    .gc-amount small { font-size:1rem; }
+    .gc-footer { margin-top:1.5rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.06); display:flex; justify-content:space-between; align-items:center; }
+    .gc-footer span { font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--taupe); }
+    .gc-dots { display:flex; gap:3px; }
+    .gc-dots div { width:6px; height:6px; border-radius:50%; background:rgba(196,168,130,.3); }
+
+    .how-it-works { margin-bottom:2rem; }
+    .how-it-works h4 { font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); margin-bottom:1.2rem; }
+    .step { display:flex; gap:1rem; align-items:flex-start; margin-bottom:1.2rem; }
+    .step-num { width:28px; height:28px; flex-shrink:0; border:1px solid var(--sand); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.72rem; color:var(--accent); font-family:var(--serif); }
+    .step-text { font-size:.85rem; color:var(--taupe); line-height:1.7; }
+    .step-text strong { color:var(--dark); font-weight:400; }
+
+    .faq { margin-top:2rem; }
+    .faq h4 { font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); margin-bottom:1.2rem; }
+    .faq-item { border-bottom:1px solid var(--sand); padding:.9rem 0; cursor:pointer; }
+    .faq-q { font-size:.85rem; color:var(--dark); display:flex; justify-content:space-between; align-items:center; gap:.5rem; }
+    .faq-q svg { flex-shrink:0; transition:transform .25s; color:var(--taupe); }
+    .faq-a { font-size:.83rem; color:var(--taupe); line-height:1.75; max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s; }
+    .faq-item.open .faq-a { max-height:200px; padding-top:.7rem; }
+    .faq-item.open .faq-q svg { transform:rotate(45deg); }
+
+    @media(max-width:960px){
+      .shop-layout { grid-template-columns:1fr; }
+      .phorest-panel { padding:3rem 1.5rem; }
+      .info-panel { padding:3rem 1.5rem; border-left:none; border-top:1px solid var(--sand); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-hero">
+  <span class="section-label">Give the gift of beauty</span>
+  <h1>Gift <em>Cards</em></h1>
+  <p class="hero-sub">Treat someone special — or yourself — to a luxury beauty experience at Anne Rossi Skin & Beauty. Choose any amount and we'll take care of the rest.</p>
+</div>
+
+<div class="shop-layout">
+
+  <!-- PHOREST EMBED PANEL -->
+  <div class="phorest-panel">
+    <h2>Purchase a <em>Gift Card</em></h2>
+    <p class="sub">Choose your amount, add the recipient's details and complete your purchase securely through our Phorest booking system. Gift cards can be used for any treatment or service at the clinic.</p>
+
+    <!-- ⚠️  REPLACE the src below with the real Phorest gift card URL for Anne Rossi.
+         Find it in: Phorest Manager → Settings → Online → Gift Card Sales → Copy URL
+         Then embed as: https://go.phorest.com/book/salons/annerossi/gift-cards  (example) -->
+    <div class="phorest-frame-wrap" id="phorestWrap">
+      <iframe
+        id="phorestFrame"
+        src="https://go.phorest.com/book/salons/annerossi/giftcards"
+        title="Anne Rossi Gift Cards"
+        allow="payment"
+        loading="lazy"
+      ></iframe>
+      <!-- Fallback shown if iframe blocked -->
+      <div class="phorest-fallback" id="phorestFallback">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="4" y="12" width="40" height="28" rx="3" stroke="#8c6e5a" stroke-width="1.2"/><path d="M4 20h40M16 12V8M32 12V8" stroke="#8c6e5a" stroke-width="1.2"/></svg>
+        <h3>Purchase Gift Card</h3>
+        <p>Our online gift card system is powered by Phorest. Click below to open the purchase page in a new tab — it only takes a minute.</p>
+        <a href="https://go.phorest.com/book/salons/annerossi/giftcards" target="_blank" class="btn-primary">Buy a Gift Card →</a>
+      </div>
+    </div>
+
+    <p class="phorest-note"><strong>Please note:</strong> The maximum gift card value per transaction is <strong>€1,000</strong>, as set by our payment processor. For amounts above €1,000, simply purchase two gift cards. Both can be redeemed together at the clinic.</p>
+  </div>
+
+  <!-- INFO PANEL -->
+  <div class="info-panel">
+
+    <!-- Visual gift card preview -->
+    <div class="gift-card-preview">
+      <p class="gc-brand">Anne <span>Rossi</span></p>
+      <p class="gc-sub">Skin & Beauty · Clontarf</p>
+      <p class="gc-amount"><small>€</small>Gift Card</p>
+      <div class="gc-footer">
+        <span>Valid for all services</span>
+        <div class="gc-dots"><div></div><div></div><div></div></div>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <div class="how-it-works">
+      <h4>How it works</h4>
+      <div class="step">
+        <div class="step-num">1</div>
+        <p class="step-text"><strong>Choose your amount</strong> — any value you like, up to €1,000 per transaction.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <p class="step-text"><strong>Add recipient details</strong> — enter the name and email of the lucky person.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <p class="step-text"><strong>Pay securely</strong> — card payment via Phorest's encrypted checkout.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <p class="step-text"><strong>Gift card delivered by email</strong> — instantly, ready to redeem at the clinic.</p>
+      </div>
+    </div>
+
+    <!-- FAQs -->
+    <div class="faq">
+      <h4>FAQs</h4>
+      <div class="faq-item">
+        <div class="faq-q">Can I use the gift card for any treatment?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Yes — gift cards are valid for any treatment or service available at Anne Rossi Skin & Beauty, including all beauty and aesthetic medicine treatments.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do gift cards expire?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Gift cards are valid for 12 months from the date of purchase. We recommend booking an appointment soon after receiving one to avoid disappointment.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I buy more than €1,000?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">The maximum per transaction is €1,000 (set by our payment processor). For a higher value, simply purchase two separate gift cards — both can be redeemed at the same appointment.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is the gift card delivered?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Instantly by email. The recipient receives a digital gift card with a unique code they can present when booking or attending their appointment.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I get a refund on a gift card?
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Gift cards are non-refundable but fully transferable — you can pass them on to someone else if needed. Please contact us if you have any concerns.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // If iframe fails to load, show fallback button
+  const frame = document.getElementById('phorestFrame');
+  const fallback = document.getElementById('phorestFallback');
+  frame.addEventListener('error', () => {
+    frame.style.display = 'none';
+    fallback.style.display = 'flex';
+  });
+  // Timeout fallback — if nothing loads in 6s, show button option
+  setTimeout(() => {
+    try {
+      const h = frame.contentWindow.document.body;
+      if(!h) throw new Error();
+    } catch(e) {
+      // Cross-origin — iframe likely working, do nothing
+    }
+  }, 6000);
+</script>
+</body>
+</html>
