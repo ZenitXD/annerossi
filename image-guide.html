@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Image Guide – Anne Rossi Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#faf7f2;--warm:#f0ebe1;--sand:#d9cfc0;--taupe:#b5a898;--dark:#2c2420;--accent:#8c6e5a;--accent2:#c4a882}
+    body{background:#1a1a1a;color:#eee;font-family:'Jost',sans-serif;font-weight:300;padding:0 0 6rem}
+
+    header{background:var(--dark);padding:3rem 4rem;border-bottom:1px solid #3a3030}
+    header h1{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--cream)}
+    header h1 span{color:var(--accent2)}
+    header p{font-size:.9rem;color:var(--taupe);margin-top:.5rem;line-height:1.7;max-width:600px}
+    .badge{display:inline-block;margin-top:1rem;background:var(--accent);color:var(--cream);padding:.35rem 1rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px}
+
+    .instructions{background:#2a2a2a;border:1px solid #333;border-radius:4px;padding:1.5rem 2rem;margin:2rem 4rem;line-height:1.8}
+    .instructions h2{font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent2);margin-bottom:1rem}
+    .instructions ol{padding-left:1.3rem}
+    .instructions li{font-size:.88rem;color:#ccc;margin-bottom:.5rem}
+    .instructions code{background:#1a1a1a;padding:.15rem .5rem;border-radius:3px;font-size:.82rem;color:var(--accent2);font-family:monospace}
+
+    .page-section{margin:3rem 4rem 0}
+    .page-label{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #333}
+    .page-label h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--cream)}
+    .page-pill{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;background:#333;color:var(--taupe);padding:.3rem .8rem;border-radius:20px}
+
+    .img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
+    .img-card{background:#252525;border:1px solid #333;border-radius:4px;overflow:hidden;transition:border-color .2s}
+    .img-card:hover{border-color:var(--accent)}
+    .img-card.done{border-color:#4a7a4a}
+    .img-card.done .card-status{background:#2d5a2d;color:#8ec98e}
+    .placeholder-box{background:linear-gradient(135deg,#2a2520,#3a302a);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;padding:2rem 1rem}
+    .placeholder-box svg{opacity:.25}
+    .placeholder-box span{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--taupe);opacity:.6}
+    .card-body{padding:1.2rem 1.5rem}
+    .card-filename{font-family:monospace;font-size:.95rem;color:var(--accent2);margin-bottom:.5rem;word-break:break-all}
+    .card-desc{font-size:.82rem;color:#aaa;line-height:1.65;margin-bottom:.8rem}
+    .card-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+    .card-page{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#666}
+    .card-size{font-size:.72rem;color:#555;background:#1a1a1a;padding:.2rem .6rem;border-radius:3px}
+    .card-status{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .7rem;border-radius:20px;background:#333;color:#666}
+
+    /* actual image preview if exists */
+    .img-card img.preview{width:100%;height:160px;object-fit:cover;display:block}
+
+    .tip-box{background:#1e2a1e;border:1px solid #2d4a2d;border-radius:4px;padding:1.2rem 1.8rem;margin:2rem 4rem 0;font-size:.85rem;color:#8ec98e;line-height:1.7}
+    .tip-box strong{color:#a8e8a8}
+
+    @media(max-width:700px){
+      header,.instructions,.page-section,.tip-box{padding-left:1.5rem;padding-right:1.5rem}
+      header{padding-top:2rem;padding-bottom:2rem}
+      .page-section{margin-left:1.5rem;margin-right:1.5rem}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Anne <span>Rossi</span> — Image Guide</h1>
+  <p>This page lists every image needed for the website, with the exact filename to use. Upload your photos to the <code>images/</code> folder on GitHub with these exact names and they will appear automatically.</p>
+  <span class="badge">🗂 {{ total }} images needed</span>
+</header>
+
+<div class="instructions">
+  <h2>How to add images</h2>
+  <ol>
+    <li>Go to your GitHub repository: <code>github.com/ZenitXD/annerossi</code></li>
+    <li>Click on the <code>images</code> folder (create it if it doesn't exist: <strong>Add file → Create new file</strong>, name it <code>images/.gitkeep</code>)</li>
+    <li>Click <strong>Add file → Upload files</strong></li>
+    <li>Upload your photo and <strong>rename it exactly</strong> as shown below (e.g. <code>hero.jpg</code>)</li>
+    <li>Click <strong>Commit changes</strong> — the site updates automatically within 1–2 minutes</li>
+  </ol>
+</div>
+
+<div class="tip-box">
+  <strong>💡 Tips:</strong> Use <code>.jpg</code> for photos, <code>.png</code> for logos. Keep file sizes under 500KB for fast loading — use <a href="https://squoosh.app" target="_blank" style="color:#a8e8a8">squoosh.app</a> (free) to compress before uploading. Ideal dimensions are noted on each card below.
+</div>
+
+<!-- ── HOME PAGE ─────────────────────────────── -->
+<div class="page-section">
+  <div class="page-label">
+    <h2>Home Page</h2>
+    <span class="page-pill">index.html</span>
+  </div>
+  <div class="img-grid">
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:160px">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8c6e5a" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Hero image</span>
+      </div>
+      <div class="card-body">
+        <p class="card-filename">images/hero.jpg</p>
+        <p class="card-desc">Main hero image — the large photo on the right side of the homepage. Best: clinic interior, treatment room, or a professional photo of Anne.</p>
+        <div class="card-meta">
+          <span class="card-page">Home · Hero</span>
+          <span class="card-size">Ideal: 1200×900px</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:160px">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8c6e5a" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span>Anne photo</span>
+      </div>
+      <div class="card-body">
+        <p class="card-filename">images/anne.jpg</p>
+        <p class="card-desc">Photo of Anne Rossi for the About strip on the homepage and the full About page. Professional portrait, ideally in the clinic.</p>
+        <div class="card-meta">
+          <span class="card-page">Home · About strip</span>
+          <span class="card-size">Ideal: 800×1000px</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service previews on home -->
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Fraxel preview</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/fraxel.jpg</p>
+        <p class="card-desc">Fraxel laser treatment photo — used on homepage preview and Services page.</p>
+        <div class="card-meta"><span class="card-page">Home + Services</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Microneedling</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/microneedling.jpg</p>
+        <p class="card-desc">Microneedling treatment photo.</p>
+        <div class="card-meta"><span class="card-page">Home + Services</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Laser hair removal</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/laser-hair.jpg</p>
+        <p class="card-desc">Laser hair removal treatment photo.</p>
+        <div class="card-meta"><span class="card-page">Home + Services</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Nails</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/nails.jpg</p>
+        <p class="card-desc">Manicure / pedicure photo.</p>
+        <div class="card-meta"><span class="card-page">Home + Services</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Brows</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/brows.jpg</p>
+        <p class="card-desc">Brow tint & shaping photo.</p>
+        <div class="card-meta"><span class="card-page">Home + Services</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Waxing</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/waxing.jpg</p>
+        <p class="card-desc">Waxing treatment photo.</p>
+        <div class="card-meta"><span class="card-page">Home + Services</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── SERVICES PAGE ─────────────────────────── -->
+<div class="page-section" style="margin-top:3rem">
+  <div class="page-label">
+    <h2>Services Page</h2>
+    <span class="page-pill">services.html</span>
+  </div>
+  <div class="img-grid">
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>IPL</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/ipl.jpg</p>
+        <p class="card-desc">IPL Intense Pulsed Light treatment photo.</p>
+        <div class="card-meta"><span class="card-page">Services only</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Fillers</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/fillers.jpg</p>
+        <p class="card-desc">Dermal fillers / skin boosters treatment photo.</p>
+        <div class="card-meta"><span class="card-page">Services only</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Chemical peel</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/peel.jpg</p>
+        <p class="card-desc">Medical-grade chemical peel treatment photo.</p>
+        <div class="card-meta"><span class="card-page">Services only</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Permanent make up</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/pmu.jpg</p>
+        <p class="card-desc">Permanent make up / cosmetic tattooing photo.</p>
+        <div class="card-meta"><span class="card-page">Services only</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Facials</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/facials.jpg</p>
+        <p class="card-desc">Facial treatment photo.</p>
+        <div class="card-meta"><span class="card-page">Services only</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Lash lift</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/lashes.jpg</p>
+        <p class="card-desc">Lash tint & lift treatment photo.</p>
+        <div class="card-meta"><span class="card-page">Services only</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:120px"><span>Spray tan</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/spray-tan.jpg</p>
+        <p class="card-desc">Spray tan treatment photo.</p>
+        <div class="card-meta"><span class="card-page">Services only</span><span class="card-size">Ideal: 600×400px</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── ABOUT PAGE ─────────────────────────────── -->
+<div class="page-section" style="margin-top:3rem">
+  <div class="page-label">
+    <h2>About Page</h2>
+    <span class="page-pill">about.html</span>
+  </div>
+  <div class="img-grid">
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:160px">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8c6e5a" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span>Anne portrait</span>
+      </div>
+      <div class="card-body">
+        <p class="card-filename">images/anne.jpg</p>
+        <p class="card-desc">Same photo as homepage — large portrait of Anne Rossi. Already listed above, same file.</p>
+        <div class="card-meta"><span class="card-page">About · Story</span><span class="card-size">Ideal: 800×1000px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:160px"><span>Clinic photo 1</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/clinic-1.jpg</p>
+        <p class="card-desc">Photo of the clinic interior — reception area, waiting area, or entrance.</p>
+        <div class="card-meta"><span class="card-page">About · Clinic</span><span class="card-size">Ideal: 600×750px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:160px"><span>Clinic photo 2</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/clinic-2.jpg</p>
+        <p class="card-desc">Second clinic photo — treatment room, equipment, or another area of the clinic.</p>
+        <div class="card-meta"><span class="card-page">About · Clinic</span><span class="card-size">Ideal: 600×750px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:160px"><span>Team member 2</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/team-2.jpg</p>
+        <p class="card-desc">Photo of team member 2 (Senior Beauty Therapist). Replace name in about.html too.</p>
+        <div class="card-meta"><span class="card-page">About · Team</span><span class="card-size">Ideal: 400×533px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:160px"><span>Team member 3</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/team-3.jpg</p>
+        <p class="card-desc">Photo of team member 3 (Laser Specialist). Replace name in about.html too.</p>
+        <div class="card-meta"><span class="card-page">About · Team</span><span class="card-size">Ideal: 400×533px</span></div>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="placeholder-box" style="height:160px"><span>Team member 4</span></div>
+      <div class="card-body">
+        <p class="card-filename">images/team-4.jpg</p>
+        <p class="card-desc">Photo of team member 4 (Nail Technician). Replace name in about.html too.</p>
+        <div class="card-meta"><span class="card-page">About · Team</span><span class="card-size">Ideal: 400×533px</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="instructions" style="margin-top:3rem;border-color:#3a3030">
+  <h2>📋 Full image list — copy & paste</h2>
+  <div style="margin-top:1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.4rem">
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/hero.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/anne.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/fraxel.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/microneedling.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/laser-hair.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/nails.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/brows.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/waxing.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/ipl.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/fillers.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/peel.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/pmu.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/facials.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/lashes.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/spray-tan.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/clinic-1.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/clinic-2.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/team-2.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/team-3.jpg</code>
+    <code style="display:block;padding:.4rem .8rem;background:#1a1a1a;border-radius:3px;font-size:.8rem;color:var(--accent2)">images/team-4.jpg</code>
+  </div>
+</div>
+
+</body>
+</html>

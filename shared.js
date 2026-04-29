@@ -73,4 +73,21 @@
       observer.observe(el);
     });
   }, 100);
+
+  // Auto-replace image placeholders when images exist
+  document.querySelectorAll('.img-ph[data-img]').forEach(el => {
+    const src = 'images/' + el.dataset.img;
+    const alt = el.dataset.alt || '';
+    const img = new Image();
+    img.onload = () => {
+      const newImg = document.createElement('img');
+      newImg.src = src;
+      newImg.alt = alt;
+      newImg.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+      // preserve dimensions from placeholder
+      newImg.style.minHeight = el.style.minHeight || '';
+      el.parentNode.replaceChild(newImg, el);
+    };
+    img.src = src;
+  });
 })();
