@@ -1,0 +1,66 @@
+<!-- Anne Rossi – Stats Bar – full width breakout -->
+<style>
+  .ar-wrap {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+  }
+  .ar-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #5D646E;
+    width: 100%;
+    font-family: 'Georgia', serif;
+  }
+  .ar-stat {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,.07);
+  }
+  .ar-stat:last-child { border-right: none; }
+  .ar-stat-num {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: #c4a882;
+    line-height: 1;
+    display: block;
+  }
+  .ar-stat-label {
+    font-size: .68rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #AA9F95;
+    margin-top: .6rem;
+    display: block;
+    font-family: sans-serif;
+  }
+  @media (max-width: 600px) {
+    .ar-stats { grid-template-columns: 1fr 1fr; }
+    .ar-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .ar-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.07); }
+  }
+</style>
+
+<div class="ar-wrap">
+  <div class="ar-stats">
+    <div class="ar-stat">
+      <span class="ar-stat-num">20+</span>
+      <span class="ar-stat-label">Years of experience</span>
+    </div>
+    <div class="ar-stat">
+      <span class="ar-stat-num">3</span>
+      <span class="ar-stat-label">Cities trained in</span>
+    </div>
+    <div class="ar-stat">
+      <span class="ar-stat-num">100%</span>
+      <span class="ar-stat-label">Medically approved</span>
+    </div>
+    <div class="ar-stat">
+      <span class="ar-stat-num">★★★★★</span>
+      <span class="ar-stat-label">Client satisfaction</span>
+    </div>
+  </div>
+</div>
